@@ -1,5 +1,5 @@
 # ChatGPT-Powered Telegram Bot for Instant Topic-Specific Replies
-
+![Diagram](./Assets/chatgpt-telegram-bot-make-integration)
 This project is an **AI-powered Telegram bot** built using **Make.com** and **OpenAI’s GPT-3.5-Turbo**.  
 It automatically responds to messages in a Telegram channel with accurate, topic-focused replies — while politely declining questions outside the defined subject.
 
