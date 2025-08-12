@@ -1,0 +1,98 @@
+{
+  "name": "E-commerce Automation - From Manual to Fully Automated",
+  "version": 2,
+  "modules": [
+    {
+      "id": 1,
+      "name": "Watch New Orders",
+      "type": "shopify.watchOrders",
+      "params": {
+        "shop": "yourshop.myshopify.com",
+        "status": "any"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Get Inventory Data",
+      "type": "googleSheets.getRow",
+      "params": {
+        "spreadsheetId": "your_spreadsheet_id",
+        "range": "Inventory!A2:E100"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Update Inventory",
+      "type": "googleSheets.updateRow",
+      "params": {
+        "spreadsheetId": "your_spreadsheet_id",
+        "range": "Inventory!A2:E100"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Create Invoice",
+      "type": "quickBooks.createInvoice",
+      "params": {
+        "customerId": "{{order.customer.id}}",
+        "amount": "{{order.total_price}}"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Send Confirmation Email",
+      "type": "gmail.sendEmail",
+      "params": {
+        "to": "{{order.customer.email}}",
+        "subject": "Your Order Confirmation - {{order.name}}",
+        "body": "Thank you for your purchase. Your order is confirmed."
+      }
+    },
+    {
+      "id": 6,
+      "name": "Log Order in Google Sheets",
+      "type": "googleSheets.appendRow",
+      "params": {
+        "spreadsheetId": "your_spreadsheet_id",
+        "range": "Orders!A:E",
+        "values": [
+          "{{order.name}}",
+          "{{order.customer.name}}",
+          "{{order.total_price}}",
+          "{{order.created_at}}"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "name": "Notify on Slack",
+      "type": "slack.postMessage",
+      "params": {
+        "channel": "#orders",
+        "text": "New order received: {{order.name}} for ${{order.total_price}}"
+      }
+    }
+  ],
+  "connections": {
+    "shopify": {
+      "name": "Shopify Connection",
+      "type": "shopify"
+    },
+    "googleSheets": {
+      "name": "Google Sheets Connection",
+      "type": "googleSheets"
+    },
+    "quickBooks": {
+      "name": "QuickBooks Connection",
+      "type": "quickBooks"
+    },
+    "gmail": {
+      "name": "Gmail Connection",
+      "type": "gmail"
+    },
+    "slack": {
+      "name": "Slack Connection",
+      "type": "slack"
+    }
+  }
+}
