@@ -1,5 +1,5 @@
 # 🛒 E-commerce Automation: From Manual to Fully Automated (Make.com Scenario)
-
+![Diagram](./Assets/Victoria_E.png)
 ## 📌 Overview
 
 This repository contains a **Make.com (formerly Integromat)** scenario that takes a client’s e-commerce process from **manual chaos** to **seamless, end-to-end automation**.
