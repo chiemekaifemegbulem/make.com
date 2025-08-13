@@ -1,5 +1,5 @@
 # 📱 Basic WhatsApp Chatbot Development
-
+![Diagram](./Assets/whatsappchatbotworkflow.png)
 ## 📌 Project Overview
 This project implements a basic WhatsApp chatbot for a client using the **WhatsApp Business Cloud API** and **Make.com (formerly Integromat)**.  
 The chatbot listens for incoming messages through a webhook and sends an instant automated reply with predefined content.  
